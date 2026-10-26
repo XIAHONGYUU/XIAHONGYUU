@@ -1,54 +1,70 @@
 # Hi, I'm XIAHONGYUU 👋
 
-关注传感与集成电路、AI Agent，以及让研究和创作能够持续推进的工具与工作流。
+**模拟电路 × AI × 工程工具**
 
-这里分享我的研究构想、开发中的项目和实践笔记，希望把值得探索的问题，逐步做成可以讨论、验证和复用的成果。
+我关注如何把模拟设计与版图经验转化为可执行的约束、可复核的数据和可持续迭代的工具。这里记录我的项目实践与研究思考，涵盖 AI 辅助模拟设计、芯片图像重建、传感器读出，以及 Agent 与内容工作流。
 
 📧 **邮箱**：[zuokaiyuann@foxmail.com](mailto:zuokaiyuann@foxmail.com)　｜　💬 **微信**：`ZUOKAIYUANN`
 
-## 我在关注什么
+## 最近在做
 
-- **传感与芯片**：光纤传感、气敏传感器读出，以及光电与 CMOS 系统的协同设计。
-- **芯片图像分析**：从多层芯片照片出发，探索图像配准、器件与连接关系的人工复核工作流。
-- **AI Agent 与知识工作流**：Agent 运维、可复用 Skills，以及长篇小说分析与创作工作区。
+### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
-## 代表项目
+**把模拟设计意图转化为版图约束、布局草图与一页式 Layout Card。**
 
-### 🔬 [Silicon Eye](https://github.com/XIAHONGYUU/silicon-eye)
+从网表中的器件名字与角色语义出发，组织匹配关系、分层面积估算、布局意图和后续改动清单，让模拟与版图之间的沟通有具体的图、数据和记录可依。
 
-探索 AI 辅助的模拟芯片逆向分析：把多层芯片照片、图像配准、观察记录和人工复核组织到同一条工作流中。
+- **可运行部分**：名字/角色解析、五层面积估算、布局草图与 layout delta。
+- **设计实践**：整理 OTA、BGR、VCOM 等模块的 Layout Card，以及运放白线布局练习。
+- **当前阶段**：v0.1 工作区；Layout Card 采用 AI/人工协作流程，CLI 本身不调用 LLM，布局草图用于工程讨论。
 
-**当前为早期开发项目**，重点是局部配准与可回查的复核工具；整芯片自动提取和可直接仿真的电路重建仍是后续目标。
+[看布局草图](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/two_stage/out/floorplan.png) · [看 Layout Guideline](https://github.com/XIAHONGYUU/Analog2Layout/tree/main/layout-guideline)
 
-### 🌐 [FIBER-SENSOR-IC](https://github.com/XIAHONGYUU/FIBER-SENSOR-IC)
+### 🔁 [AnalogLoop](https://github.com/XIAHONGYUU/AnalogLoop)
 
-围绕光纤传感、集成光子与 CMOS 读出的融合开展研究整理，讨论传感机制、信号链、制造边界和封装测试问题。
+**面向 AI 辅助模拟电路设计的参考架构。**
 
-**研究启动稿**，包含论文线索、路线讨论和待验证假设。[阅读在线报告 →](https://xiahongyuu.github.io/FIBER-SENSOR-IC/)
+围绕参数优化中的仿真成本、设计意图与验证可信度，讨论 LLM 策略层、确定性执行工具链、快速代理模型和真实 SPICE 验证之间的分工。
 
-### ⚡ [GAS-SENSOR-IC](https://github.com/XIAHONGYUU/GAS-SENSOR-IC)
+- 用语义网表表达器件角色、匹配关系和可调范围。
+- 把面积预算、验证晋级条件与实验记录纳入设计流程。
+- **当前交付**：架构文档、工具契约与示例规范；v1.0.0 为架构笔记冻结版，可运行的优化闭环仍在路线图中。
 
-研究如何将气敏传感器的电学变化连接到可校准、可测试的 CMOS 数模混合读出系统。
+[看架构与评审入口](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/docs/for-reviewers.md)
 
-**公开研究构想与交流报告**，关注接口、模拟前端和系统级设计问题。[阅读在线报告 →](https://xiahongyuu.github.io/GAS-SENSOR-IC/)
+### 🔬 [SiliconEye](https://github.com/XIAHONGYUU/SiliconEye)
 
-### 📚 [Novel Workspace Pipeline](https://github.com/XIAHONGYUU/novel-workspace-pipeline)
+**从多层芯片照片出发，用版图约束与人工复核逐步重建材料、器件和连接。**
 
-把长篇小说分析组织成可以续跑、校验和交接的工作区，按章节骨架、开篇、主角、重要配角、整书大纲与高光场景逐层推进。
+将模拟版图经验用于图像重建：结合图像算法、AI 观察、规则几何与增量修订，让来源照片、器件编号和跨层关系可以相互追溯。
 
-适合关注小说拆解、结构化阅读和 AI 辅助内容分析的朋友。
+- **交互案例**：AA/POLY/CT 材料规则重建、器件编号与连接、五层导体联合复核。
+- **工程重点**：记录错误与修订依据，让局部改善能够接续已有结果，并检查是否引入退化。
+- **当前阶段**：同一颗芯片上的人机协作研究原型；全芯片自动恢复、工艺 DRC/LVS 和仿真就绪网表仍待完成。
 
-## 更多工具与笔记
+[打开交互 Demo →](https://xiahongyuu.github.io/SiliconEye/) · [看质量纠错案例](https://github.com/XIAHONGYUU/SiliconEye/blob/main/docs/portfolio/quality-case.md)
+
+## 传感与集成电路研究
+
+| 项目 | 关注的问题 | 阅读入口 |
+| --- | --- | --- |
+| [FIBER-SENSOR-IC](https://github.com/XIAHONGYUU/FIBER-SENSOR-IC) | 光纤传感如何与集成光子、CMOS 读出及封装测试协同设计。 | [在线报告](https://xiahongyuu.github.io/FIBER-SENSOR-IC/) |
+| [GAS-SENSOR-IC](https://github.com/XIAHONGYUU/GAS-SENSOR-IC) | 如何将气敏传感器的电学变化接入可校准、可测试的数模混合读出系统。 | [在线报告](https://xiahongyuu.github.io/GAS-SENSOR-IC/) |
+
+这两项目前以公开研究构想、文献整理与技术交流为主，具体进度和待验证问题见各自仓库。
+
+## Agent、工作流与其他探索
 
 | 项目 | 内容 |
 | --- | --- |
-| [Novel Outline Workspace](https://github.com/XIAHONGYUU/Novel-Outline-Workspace) | 面向原创小说策划的工作区，组织设定、大纲、时间线和想法，支持一致性检查与合并流程。 |
-| [Hermes Ops](https://github.com/XIAHONGYUU/hermes-ops) | 单容器 Hermes Agent 的运维工具，包括定时任务监控、容器规格记录、重建与凭据诊断。 |
-| [Hermes Skills](https://github.com/XIAHONGYUU/hermes-skills) | 整理与复用 Agent Skills，涵盖工作区审计、证据检查、结构化提取和运维流程。 |
-| [Home Automation Notes](https://github.com/XIAHONGYUU/home-automation-notes) | 全屋智能与 AI Agent 的架构讨论，记录设备、协议、控制边界和选型依据。 |
+| [Hermes Ops](https://github.com/XIAHONGYUU/hermes-ops) | 单容器 Hermes Agent 运维工具：定时任务监控、容器规格记录、重建与凭据诊断。 |
+| [Hermes Skills](https://github.com/XIAHONGYUU/hermes-skills) | 可复用的 Agent Skills：工作区审计、证据检查、结构化提取与运维流程。 |
+| [Novel Workspace Pipeline](https://github.com/XIAHONGYUU/novel-workspace-pipeline) | 长篇小说的分层分析工作区，覆盖章节骨架、开篇、人物、大纲与高光场景，支持续跑、校验和交接。 |
+| [Novel Outline Workspace](https://github.com/XIAHONGYUU/Novel-Outline-Workspace) | 面向原创小说策划，组织设定、大纲、时间线与想法，支持一致性检查和合并流程。 |
+| [Home Automation Notes](https://github.com/XIAHONGYUU/home-automation-notes) | 全屋智能与 AI Agent 架构笔记，讨论协议、设备、控制边界和选型依据。 |
 
 ## 欢迎交流
 
-欢迎交流传感与芯片研究、芯片图像分析、AI Agent 工具，以及小说分析与创作工作流。
+欢迎交流模拟电路与版图、AI 辅助设计、芯片图像重建、传感器读出，以及 Agent 与知识工作流。
 
-项目问题和改进建议可以通过对应仓库的 Issues 提出，也可以通过上方邮箱或微信联系我。
+项目问题和改进建议可以提交到对应仓库的 Issues，也可以通过上方邮箱或微信联系我。
