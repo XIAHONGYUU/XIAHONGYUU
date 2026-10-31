@@ -25,27 +25,32 @@
 
 ### 🔁 [AnalogLoop](https://github.com/XIAHONGYUU/AnalogLoop)
 
-**面向 AI 辅助模拟电路设计的参考架构。**
+**以仿真预算为中心、可复现的模拟电路设计 Agent 架构。**
 
-围绕参数优化中的仿真成本、设计意图与验证可信度，讨论 LLM 策略层、确定性执行工具链、快速代理模型和真实 SPICE 验证之间的分工。
+不是把 LLM 当仿真器，而是把策略、确定性工具链、两层验证和可复盘账本分开。
 
-- 用语义网表表达器件角色、匹配关系和可调范围。
-- 把面积预算、验证晋级条件与实验记录纳入设计流程。
-- **当前交付**：架构文档、工具契约与示例规范；v1.0.0 为架构笔记冻结版，可运行的优化闭环仍在路线图中。
+![AnalogLoop architecture](https://raw.githubusercontent.com/XIAHONGYUU/AnalogLoop/main/diagrams/png/architecture.png)
 
-[看架构与评审入口](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/docs/for-reviewers.md)
+- **两层验证**：代理模型做探索/排序，真实 SPICE 做签核；晋级门显式决定何时升级。
+- **语义网表 + validator**：role/match/ratio/tunable 写入 `roles.yaml`；名字只是提示，manifest 是事实，validator 是仲裁。
+- **面积进入闭环**：角色感知面积、三值面积门、Pareto 选择，而不是事后统计。
+- **执行与复原**：ASST 固化 CLI/config/measure/archive；给定 run 可在另一台机器复原。
+- **当前交付**：v1.0.0 architecture note freeze；架构、契约、规范，不是可运行闭环或流片验证。
+
+[架构图](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/diagrams/png/architecture.png) · [10 分钟评审入口](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/docs/for-reviewers.md) · [语义网表图](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/diagrams/png/netlist-semantics.png) · [面积与 layout handoff](https://github.com/XIAHONGYUU/AnalogLoop/blob/main/docs/area-and-layout.md)
 
 ### 🔬 [SiliconEye](https://github.com/XIAHONGYUU/SiliconEye)
 
-**从多层芯片照片出发，用版图约束与人工复核逐步重建材料、器件和连接。**
+**从同一颗芯片的 8 张逐层照片出发，把模拟版图经验变成可执行、可复核的逆向重建约束。**
 
-将模拟版图经验用于图像重建：结合图像算法、AI 观察、规则几何与增量修订，让来源照片、器件编号和跨层关系可以相互追溯。
+![SiliconEye overview](https://raw.githubusercontent.com/XIAHONGYUU/SiliconEye/main/site/assets/overview.webp)
 
-- **交互案例**：AA/POLY/CT 材料规则重建、器件编号与连接、五层导体联合复核。
-- **工程重点**：记录错误与修订依据，让局部改善能够接续已有结果，并检查是否引入退化。
-- **当前阶段**：同一颗芯片上的人机协作研究原型；全芯片自动恢复、工艺 DRC/LVS 和仿真就绪网表仍待完成。
+- **真实案例**：AA/POLY/CT 材料规则重建、MOS 栅指编号、M1/V1/M2/V2/M3 五层联合复核。
+- **质量门**：从六孔 V1 组接窄 M2-A 的错误出发，增加孔数、完整阵列和上下承载检查；局部改善可继承，但不允许退化。
+- **结果边界**：AA/POLY/CT 工作层对象数；8 个历史任务（2 个机器评分、6 个人工 rubric）；2 条失败记录公开；不把“测试通过”当识别准确率。
+- **当前阶段**：一颗芯片上的人机协作研究原型；全芯片自动恢复、真实工艺 DRC/LVS、仿真就绪网表仍待完成。
 
-[打开交互 Demo →](https://xiahongyuu.github.io/SiliconEye/) · [看质量纠错案例](https://github.com/XIAHONGYUU/SiliconEye/blob/main/docs/portfolio/quality-case.md)
+[打开交互 Demo →](https://xiahongyuu.github.io/SiliconEye/) · [质量纠错案例](https://github.com/XIAHONGYUU/SiliconEye/blob/main/docs/portfolio/quality-case.md) · [评测基准](https://github.com/XIAHONGYUU/SiliconEye/blob/main/benchmarks/portfolio-quality-v1/README.md) · [三个交互案例](https://github.com/XIAHONGYUU/SiliconEye/blob/main/docs/portfolio/cases.md)
 
 ## 传感与集成电路研究
 
