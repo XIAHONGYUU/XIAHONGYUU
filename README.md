@@ -10,15 +10,18 @@
 
 ### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
-**把模拟设计意图转化为版图约束、布局草图与一页式 Layout Card。**
+**把模拟设计意图转化为可执行的版图白线、面积数据与 Layout Card。**
 
-从网表中的器件名字与角色语义出发，组织匹配关系、分层面积估算、布局意图和后续改动清单，让模拟与版图之间的沟通有具体的图、数据和记录可依。
+从真实网表出发，先解决“每个管子是干什么的”的语义层，再把 W/L/m、匹配组、ring/DNW、R/C 和面积约束编译成可复核的白线意图。
 
-- **可运行部分**：名字/角色解析、五层面积估算、布局草图与 layout delta。
-- **设计实践**：整理 OTA、BGR、VCOM 等模块的 Layout Card，以及运放白线布局练习。
-- **当前阶段**：v0.1 工作区；Layout Card 采用 AI/人工协作流程，CLI 本身不调用 LLM，布局草图用于工程讨论。
+![Area-first class-A white-line](https://raw.githubusercontent.com/XIAHONGYUU/Analog2Layout/main/examples/classa_opamp/area-min.png)
 
-[看布局草图](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/two_stage/out/floorplan.png) · [看 Layout Guideline](https://github.com/XIAHONGYUU/Analog2Layout/tree/main/layout-guideline)
+- **当前白线案例**：16-MOS class-A，面积优先版 **225.9 × 69.8 µm / 15,766 µm² / 74.6% utilization**；R/C 在主 DNW 内并带 AA ring，M14 在外侧独立 DNW。
+- **白线不只一张图**：同时保留 balanced baseline、阵列细节和长宽比候选；面积口径明确区分有效面积与 DNW bbox。
+- **正在做**：把 schematic → annotation → white-line 封装为 **hybrid prompt + deterministic scripts** 的 skill；JSON schema、class-A golden case 和 5T annotated schematic 已完成。
+- **边界**：白线是 layout intent，不是 DRC/LVS/PEX signoff。
+
+[Area-first white-line](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/classa_opamp/area-min.png) · [Balanced baseline](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/classa_opamp/white-line.png) · [Aspect candidates](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/classa_opamp/aspect-candidates.png) · [Class-A README](https://github.com/XIAHONGYUU/Analog2Layout/blob/main/examples/classa_opamp/README.md) · [Layout Guideline](https://github.com/XIAHONGYUU/Analog2Layout/tree/main/layout-guideline)
 
 ### 🔁 [AnalogLoop](https://github.com/XIAHONGYUU/AnalogLoop)
 
