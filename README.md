@@ -21,7 +21,7 @@
 - **工程边界**：port-first、evidence-first、允许 unknown；不是仿真器，不做 DRC/LVS/PEX；不提交 PDK 或私有网表。
 - **我的角色**：问题定义、role taxonomy/证据口径、评测协议与 demo 设计；代码、示例和文档在 AI 辅助下完成。
 
-[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md) · [Gold sets](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/benchmarks/gold/README.md)
+[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [架构示意](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/overview.svg) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md) · [Gold sets](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/benchmarks/gold/README.md)
 
 ### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
