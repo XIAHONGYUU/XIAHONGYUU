@@ -8,6 +8,21 @@
 
 ## 最近在做
 
+### 🧠 [AnalogNetlistLabel](https://github.com/XIAHONGYUU/AnalogNetlistLabel)
+
+**把陌生模拟网表的“每个管子在做什么”变成可复核的语义层。**
+
+输入一个只有连接和尺寸的 flat SPICE netlist，输出 ports / devices / nets / blocks 的语义 overlay：role、match/group、net class、evidence、confidence、review queue。源网表只读，原始名字保留。
+
+<img src="https://raw.githubusercontent.com/XIAHONGYUU/AnalogNetlistLabel/main/docs/assets/review.svg" alt="AnalogNetlistLabel review view" width="100%">
+
+- **当前 demo**：LDO 41/41 MOS 人工确认；generic OTA 26/26；合并 smoke gold 58/58；41 个测试 + CI。
+- **可复核**：review.md / review.csv / gold.json；accept / correct / ambiguous；strict/lenient accuracy、confusion、review rate。
+- **工程边界**：port-first、evidence-first、允许 unknown；不是仿真器，不做 DRC/LVS/PEX；不提交 PDK 或私有网表。
+- **我的角色**：问题定义、role taxonomy/证据口径、评测协议与 demo 设计；代码、示例和文档在 AI 辅助下完成。
+
+[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md) · [Gold sets](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/benchmarks/gold/README.md)
+
 ### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
 **把模拟设计意图转化为可执行的版图白线、面积数据与 Layout Card。**
