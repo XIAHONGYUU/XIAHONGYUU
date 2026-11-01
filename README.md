@@ -10,18 +10,18 @@
 
 ### 🧠 [AnalogNetlistLabel](https://github.com/XIAHONGYUU/AnalogNetlistLabel)
 
-**把陌生模拟网表的“每个管子在做什么”变成可复核的语义层。**
+**把大型模拟网表从 top 到 leaf 层层拆解，恢复成可复核的语义层。**
 
-输入一个只有连接和尺寸的 flat SPICE netlist，输出 ports / devices / nets / blocks 的语义 overlay：role、match/group、net class、evidence、confidence、review queue。源网表只读，原始名字保留。
+真实输入通常是一个大 .sp：top + 很多 subckt，名字大多无语义。NetlistLabel 先看 top 接口、电源、subckt 实例和控制关系，再下钻到 leaf cell，给每个器件/net/block 输出 role、match/group、evidence、confidence 和 review；最后再聚合回层次结构。
 
-<img src="https://raw.githubusercontent.com/XIAHONGYUU/AnalogNetlistLabel/main/docs/assets/review.svg" alt="AnalogNetlistLabel review view" width="100%">
+<img src="https://raw.githubusercontent.com/XIAHONGYUU/AnalogNetlistLabel/main/docs/assets/vision.svg" alt="AnalogNetlistLabel top-level design" width="100%">
 
-- **当前 demo**：LDO 41/41 MOS 人工确认；generic OTA 26/26；合并 smoke gold 58/58；41 个测试 + CI。
-- **可复核**：review.md / review.csv / gold.json；accept / correct / ambiguous；strict/lenient accuracy、confusion、review rate。
-- **工程边界**：port-first、evidence-first、允许 unknown；不是仿真器，不做 DRC/LVS/PEX；不提交 PDK 或私有网表。
+- **顶层思路**：先分解，再标注；当前 v0.2 先跑通 leaf-cell annotation，full-netlist / subckt selection / 跨层聚合是下一步。
+- **已跑通**：LDO 41/41 MOS、generic OTA 26/26、合并 gold 58/58、41 个测试 + CI。
+- **新老对比**：老网表只有 XM*/net；新网表保留原层次和名字，但多一层 role / net class / match / evidence overlay。
 - **我的角色**：问题定义、role taxonomy/证据口径、评测协议与 demo 设计；代码、示例和文档在 AI 辅助下完成。
 
-[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [架构示意](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/overview.svg) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md) · [Gold sets](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/benchmarks/gold/README.md)
+[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [顶层设计](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/vision.md) · [复核界面示意](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/review.svg) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md)
 
 ### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
