@@ -22,7 +22,7 @@
 - **为什么重要**：开源模拟网表没有 GUI；语义层是 AI 接入公开素材库的接口，可延伸到 PERC-like 检查、整体版图检查、AI 驱动网表修改。
 - **我的角色**：问题定义、role taxonomy/证据口径、评测协议与 demo 设计；代码、示例和文档在 AI 辅助下完成。
 
-[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [顶层设计](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/vision.md) · [复核界面示意](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/review.svg) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md)
+[Repo](https://github.com/XIAHONGYUU/AnalogNetlistLabel) · [v0.2.0 release](https://github.com/XIAHONGYUU/AnalogNetlistLabel/releases/tag/v0.2.0) · [顶层设计](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/vision.md) · [示例：XM59 证据链](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/review.svg) · [评测协议](https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/evaluation.md)
 
 ### 📐 [Analog2Layout](https://github.com/XIAHONGYUU/Analog2Layout)
 
