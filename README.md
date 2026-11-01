@@ -14,7 +14,7 @@
 
 真实输入通常是一个大 .sp：top + 很多 subckt，名字大多无语义。NetlistLabel 先看 top 接口、电源、subckt 实例和控制关系，再下钻到 leaf cell，给每个器件/net/block 输出 role、match/group、evidence、confidence 和 review；最后再聚合回层次结构。
 
-<img src="https://raw.githubusercontent.com/XIAHONGYUU/AnalogNetlistLabel/main/docs/assets/vision.svg" alt="AnalogNetlistLabel top-level design" width="100%">
+<img src="https://github.com/XIAHONGYUU/AnalogNetlistLabel/blob/main/docs/assets/vision.svg?raw=true" alt="AnalogNetlistLabel top-level design" width="100%">
 
 - **顶层思路**：先分解，再标注；当前 v0.2 先跑通 leaf-cell annotation，full-netlist / subckt selection / 跨层聚合是下一步。
 - **已跑通**：LDO 41/41 MOS、generic OTA 26/26、合并 gold 58/58、41 个测试 + CI。
